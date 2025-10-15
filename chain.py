@@ -43,8 +43,6 @@ HERRAMIENTAS DISPONIBLES:
 - saldo_cuenta: Consultar saldo actual
 - info_tarjeta_credito: Información de tarjeta de crédito (montos, fechas)
 - credito_bancario: Información de créditos bancarios
-- descuentos: Descuentos y ofertas disponibles
-- sucursal_cercana: Encontrar la sucursal más cercana
 - info_polizas: Información de pólizas de seguros del cliente
 - faq_search: Preguntas frecuentes (si disponible)
 
@@ -60,7 +58,7 @@ EJEMPLOS:
 - "¿mi saldo?" → Usar saldo_cuenta
 - "hola" → Responder sin herramientas: "¡Hola! Soy tu asistente bancario..."
 - "tarjeta" → Usar info_tarjeta_credito
-- "sucursal" → Usar sucursal_cercana
+- "crédito" → Usar credito_bancario
 - "pólizas" o "seguros" → Usar info_polizas"""),
         MessagesPlaceholder(variable_name="chat_history", optional=True),
         ("user", "{input}"),

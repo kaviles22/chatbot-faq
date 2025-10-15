@@ -14,27 +14,6 @@ class SaldoCuentaTool(BaseTool):
     
     def _arun(self, query: str):
         raise NotImplementedError("Este tool no soporta ejecución asíncrona")
-    
-class SucursalCercanaTool(BaseTool):
-    name: str = "sucursal_cercana"
-    description: str = "Obtiene la sucursal bancaria más cercana al cliente"
-    
-    def _run(self, query: str = "") -> str:
-        # Simulación de datos - en producción esto consultaría la base de datos real
-        sucursales = [
-            "Sucursal Principal - Av. 9 de Octubre",
-            "Sucursal Mall del Sol",
-            "Sucursal Urdesa Central",
-            "Sucursal Samborondón",
-            "Sucursal Ceibos",
-            "Sucursal Alborada",
-            "Sucursal Centro"
-        ]
-        sucursal = random.choice(sucursales)
-        return f"La sucursal bancaria más cercana es: {sucursal}"
-    
-    def _arun(self, query: str):
-        raise NotImplementedError("Este tool no soporta ejecución asíncrona")
 
 class InfoTarjetaCreditoTool(BaseTool):
     name: str = "info_tarjeta_credito"
@@ -84,32 +63,6 @@ class CreditoBancarioTool(BaseTool):
 - Valor ya pagado: ${valor_pagado:.2f} USD
 - Valor pendiente: ${valor_pendiente:.2f} USD
 - Fecha próxima de pago: {proxima_fecha.strftime('%d/%m/%Y')}"""
-    
-    def _arun(self, query: str):
-        raise NotImplementedError("Este tool no soporta ejecución asíncrona")
-
-class DescuentosTool(BaseTool):
-    name: str = "descuentos"
-    description: str = "Obtiene los descuentos disponibles esta semana con la tarjeta de crédito"
-    
-    def _run(self, query: str = "") -> str:
-        # Simulación de descuentos disponibles
-        descuentos = [
-            "Supermercados Mi Comisariato - 15% de descuento",
-            "Farmacias Cruz Azul - 10% de descuento",
-            "Restaurantes KFC - 20% de descuento",
-            "Gasolineras Primax - 5% de descuento",
-            "Cines Supercines - 25% de descuento los martes",
-            "Tiendas Etafashion - 30% de descuento"
-        ]
-        
-        # Seleccionar algunos descuentos al azar
-        descuentos_semana = random.sample(descuentos, 4)
-        
-        return f"""Descuentos disponibles esta semana con su tarjeta de crédito:
-{chr(10).join([f'• {desc}' for desc in descuentos_semana])}
-
-*Descuentos válidos hasta el próximo domingo"""
     
     def _arun(self, query: str):
         raise NotImplementedError("Este tool no soporta ejecución asíncrona")
@@ -175,7 +128,5 @@ def get_banking_tools():
         SaldoCuentaTool(),
         InfoTarjetaCreditoTool(),
         CreditoBancarioTool(),
-        DescuentosTool(),
-        SucursalCercanaTool(),
         PolizasTool()
     ]
